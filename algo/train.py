@@ -111,7 +111,7 @@ def evaluate_policy(env,
 
 
 def check_con_ability(policy, a_net, r_margin, state, subgoal, writer, total_timesteps, goal_dim):
-    state_k = policy.select_action(state, subgoal, to_numpy=False)
+    state_k = policy.select_action(state, subgoal, to_numpy=False).detach()
     length = len(a_net)
     for i in range(length):
         dis = F.pairwise_distance(a_net[i](state_k[:goal_dim]), a_net[i](state[:goal_dim].float()))
