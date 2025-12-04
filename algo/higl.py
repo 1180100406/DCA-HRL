@@ -587,7 +587,7 @@ class Controller(object):
         for it in range(iterations):
             # Sample replay buffer
             if eval == True:
-                x, y, _, _, sg, _, _, _, _, _, _ , _, _= replay_buffer.sample(batch_size, new_first=True, start=start_con)
+                x, y, _, _, sg, _, _, _, _, _, _ , _, _= replay_buffer.sample(batch_size, start=start_con)
 
                 state = self.clean_obs(get_tensor(x))
                 sg = get_tensor(sg)
