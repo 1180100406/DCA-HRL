@@ -848,7 +848,7 @@ def run_higl(args):
             if args.sparse_rew_type == 'gau':
                 if sigma > 1:
                     distance1 = np.linalg.norm(next_achieved_goal - next_goal)
-                    manager_transition['reward'] += (args.aux_rew_lambda * (gd(sigmoid(distance1)*sigma, 0, sigma) - gd(sigmoid(distance0)*sigma, 0, sigma))) * args.man_rew_scale
+                    manager_transition['reward'] += (float(terminated) + args.aux_rew_lambda * (gd(sigmoid(distance1)*sigma, 0, sigma) - gd(sigmoid(distance0)*sigma, 0, sigma))) * args.man_rew_scale
                     distance0 = distance1
                 else:
                     manager_transition['reward'] += float(terminated) * args.man_rew_scale
