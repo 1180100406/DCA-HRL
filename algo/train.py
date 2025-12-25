@@ -697,7 +697,7 @@ def run_higl(args):
                             for i in range(len(traj)):
                                 adj_factor = args.adj_factor if args.algo in ['higl', 'aclg', 'dca'] else 1
                                 for k in range(int(args.manager_propose_freq * adj_factor)):
-                                    for j in range(1, min(int(args.manager_propose_freq * adj_factor - k), len(traj) - i)):  # k+1步邻域
+                                    for j in range(1, min(int(args.manager_propose_freq * adj_factor - k), len(traj) - i)):
                                         s1 = tuple(np.round(traj[i]).astype(np.int32))
                                         s2 = tuple(np.round(traj[i + j]).astype(np.int32))
                                         if s1 not in state_list:
